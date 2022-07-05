@@ -40,7 +40,7 @@ export class TableController {
   @ApiOperation({
     summary: 'Criar uma mesa',
   })
-  create(@Body() dto: CreateTableDto): Promise<Table> {
+  create(@Body() dto: CreateTableDto): Promise<void | Table> {
     return this.tableService.create(dto);
   }
 
