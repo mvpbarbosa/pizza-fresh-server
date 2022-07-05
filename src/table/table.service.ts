@@ -7,9 +7,14 @@ import { Table } from './entity/table.entity';
 export class TableService {
   constructor(private readonly prisma: PrismaService) {}
 
-  findAll() {
+  findAll(): Promise<Table[]> {
     return this.prisma.table.findMany();
   }
+
+  findOne(id: string): Promise<Table> {
+    return this.prisma.table.findUnique({ where: { id } });
+  }
+
   create(dto: CreateTableDto) {
     const data: Table = { ...dto };
 
