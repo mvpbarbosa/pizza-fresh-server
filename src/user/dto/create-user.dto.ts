@@ -8,14 +8,7 @@ export class CreateUserDto {
     example: 'marcosbarbosa',
   })
   nickname: string;
-
-  @IsString()
-  @ApiProperty({
-    description: 'Nome do usuário. Apenas para exibição',
-    example: 'Marcos Barbosa',
-  })
-  name: string;
-
+  
   @IsString()
   @MinLength(8)
   @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
